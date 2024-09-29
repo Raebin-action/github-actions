@@ -6,10 +6,11 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
-        version: [12, 14]
+        version: [10, 12, 14]
     runs-on: ${{ matrix.os }}
     steps:
       - name: check matrix
+        if: not (matrix.os == 'windows-latest' && matrix.version == 10)
         run: |
           echo ${{ matrix.os }}
           echo ${{ matrix.version }}
