@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: check matrix
-        if: not (matrix.os == 'windows-latest' && matrix.version == 10)
+        if: ${{!(matrix.os == 'windows-latest' && matrix.version == 10)}}
         run: |
           echo ${{ matrix.os }}
           echo ${{ matrix.version }}
